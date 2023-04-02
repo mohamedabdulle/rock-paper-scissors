@@ -92,7 +92,7 @@ function game(event) {
   let winner;
   if (roundNumber > 5) {
     (winnerArr[0] > winnerArr[1]) ? winner = "Player" : winner = "Computer";
-    announcement.innerText = `Round ${--roundNumber}: ${winner} is the winner. Total score is: Player (${winnerArr[0]} - ${winnerArr[1]}) Computer.`
+    announcement.innerText = `Round ${--roundNumber}: ${winner} is the winner. Total score is:\n Player (${winnerArr[0]} - ${winnerArr[1]}) Computer.`
     isGameFinished = true;
   }
 }
