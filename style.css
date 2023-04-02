@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background: no-repeat center/cover url(img/3843177.jpg);
+}
+
+#container {
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#shape {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#shape button {
+  padding: 10px;
+  border-radius: 10px;
+  width: 144px;
+  height: 200px;
+  background-color: white;
+  background-size: 75% 75%;
+}
+
+#context {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+#msg {
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 15px;
+  font-weight: bold;
+  flex: 1 1 0;
+  width: 450px;
+}
+
+#reset {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 20px;
+  flex: 0 0 auto;
+}
+
+#rock {
+  background: no-repeat 50% 56% url(img/rock.gif);
+}
+
+#paper {
+  background: no-repeat center url(img/paper.gif);
+}
+
+#scissors {
+  background: no-repeat 50% 56% url(img/scissors.gif);
+}

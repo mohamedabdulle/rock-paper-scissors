@@ -1,18 +1,23 @@
 const ROCK = "rock";
 const PAPER = "paper";
-const SCISSOR = "scissor";
+const SCISSORS = "scissors";
 const PLAYER = "player";
 const COMPUTER = "computer";
 const DRAW = "draw"
 let roundNumber = 1;
 let isGameFinished = false;
-let ogText = 'Click Rock, Paper, or Scissor to start the game.'
-let announcement = (document.querySelector('#announcement'));
+let ogText = 'Click Rock, Paper, or Scissors to start the game.'
+let announcement = (document.querySelector('#msg'));
 let winnerArr = [0, 0];
 
+const button = document.querySelector('#shape');
+button.addEventListener('mousedown', game);
+
+const resetButton = document.querySelector('#reset');
+resetButton.addEventListener('mousedown', reset);
 
 function getComputerChoice() {
-  const choices = [ROCK, PAPER, SCISSOR];
+  const choices = [ROCK, PAPER, SCISSORS];
   const numberChoice = (Math.floor(Math.random() * 100)) % 3;
   return choices[numberChoice];
 }
@@ -21,17 +26,13 @@ function playRound(playerSelection, computerSelection) {
   const playerSel = playerSelection.toLowerCase();
   const computerSel = computerSelection.toLowerCase();
 
-  if (playerSel === computerSel) {
-    return DRAW;
-  }
-
   switch (playerSel) {
+    case computerSel:
+      return DRAW;
     case ROCK:
-      return (computerSel == SCISSOR) ? PLAYER : COMPUTER;
-      break;
-    case SCISSOR:
+      return (computerSel == SCISSORS) ? PLAYER : COMPUTER;
+    case SCISSORS:
       return (computerSel === PAPER) ? PLAYER : COMPUTER;
-      break;
     case PAPER:
       return (computerSel === ROCK) ? PLAYER : COMPUTER;
   }
@@ -43,13 +44,11 @@ function capitalizeFirstLetter(word) {
 }
 
 function endOfRoundMessage(winner, playerSelection, computerSelection) {
-    switch (winner) {
+  switch (winner) {
     case PLAYER:
       return `You win! ${capitalizeFirstLetter(playerSelection)} beats ${capitalizeFirstLetter(computerSelection)}.`;
-      break;
     case COMPUTER:
       return `You lose! ${capitalizeFirstLetter(playerSelection)} loses to ${capitalizeFirstLetter(computerSelection)}.`;
-      break;
     case DRAW:
       return `You drew! ${capitalizeFirstLetter(playerSelection)} vs ${capitalizeFirstLetter(computerSelection)}`;
   }
@@ -68,15 +67,13 @@ function game(event) {
     return;
   }
 
-  let playerSelection = event.target.innerText;  
+  let playerSelection = event.target.dataset.shape;
 
-  // let playerSelection = prompt("Rock, Paper, or Scissor?");
   let computerSelection = getComputerChoice();
   let roundWinner = playRound(playerSelection, computerSelection);
 
   while (roundWinner === DRAW) {
     announcement.innerText = endOfRoundMessage(roundWinner, playerSelection, computerSelection);
-    // playerSelection = prompt("DRAW! Try again. Rock, Paper, or Scissor?");
     computerSelection = getComputerChoice();
     roundWinner = playRound(playerSelection, computerSelection);
     return;
@@ -95,13 +92,7 @@ function game(event) {
   let winner;
   if (roundNumber > 5) {
     (winnerArr[0] > winnerArr[1]) ? winner = "Player" : winner = "Computer";
-    announcement.innerText = `Round ${--roundNumber}: ${winner} is the winner. Total score ${winnerArr[0]} vs ${winnerArr[1]}.`
+    announcement.innerText = `Round ${--roundNumber}: ${winner} is the winner. Total score is: Player (${winnerArr[0]} - ${winnerArr[1]}) Computer.`
     isGameFinished = true;
   }
 }
-
-const button = document.querySelector('#selection');
-button.addEventListener('click', game);
-
-const resetButton = document.querySelector('#reset');
-resetButton.addEventListener('click', reset);

@@ -6,18 +6,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Rock, Paper, Scissors</title>
         <script src="function.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-      <div id="selection">
-        <button>ROCK</button>
-        <button>PAPER</button>
-        <button>SCISSOR</button>
-      </div>
-      <div>
-        <div id="announcement">
-          Press any button above to start the game.
+      <div id="container">
+        <div id="shape">
+          <button id="rock" data-shape="rock"></button>
+          <button id="paper" data-shape="paper"></button>
+          <button id="scissors" data-shape="scissors"></button>
         </div>
-        <button id="reset">Reset</button>
+        <div id="context">
+          <span id="msg">
+            Press any button above to start the game.
+          </span>
+          <button id="reset">Reset</button>
+        </div>
       </div>
     </body>
 </html>
