@@ -10,6 +10,9 @@ let ogText = 'Click Rock, Paper, or Scissors to start the game.'
 let announcement = (document.querySelector('#msg'));
 let winnerArr = [0, 0];
 
+const playerScore = document.querySelector('#player-score span');
+const computerScore = document.querySelector('#computer-score span');
+
 const button = document.querySelector('#shape');
 button.addEventListener('mousedown', game);
 
@@ -59,6 +62,8 @@ function reset(event) {
   announcement.innerText = ogText;
   roundNumber = 1;
   winnerArr = [0, 0];
+  playerScore.innerText = '0'
+  computerScore.innerText = '0'
 }
 
 function game(event) {
@@ -83,9 +88,11 @@ function game(event) {
 
   if (roundWinner === PLAYER) {
     winnerArr[0]++;
+    playerScore.innerText = winnerArr[0];
     roundNumber++;
   } else if (roundWinner == COMPUTER) {
     winnerArr[1]++;
+    computerScore.innerText = winnerArr[1];
     roundNumber++;
   }
 

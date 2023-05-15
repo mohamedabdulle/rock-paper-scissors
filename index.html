@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, intial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Rock, Paper, Scissors</title>
-        <script src="function.js" defer></script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    </head>
-    <body>
-      <div id="container">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, intial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Rock, Paper, Scissors</title>
+  <script src="function.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+
+<body>
+  <div id="body-container">
+    <div id="container">
+      <div id="score-board">
+        <div id="player-score" class="score">Player: <span>0</span></div>
+        <div id="computer-score" class="score">Computer: <span>0</span></div>
+      </div>
+      <div id="interact">
         <div id="shape">
           <button id="rock" data-shape="rock"></button>
           <button id="paper" data-shape="paper"></button>
@@ -18,10 +26,18 @@
         </div>
         <div id="context">
           <span id="msg">
-            Press any button above to start the game.
+            Click Rock, Paper, or Scissors to start the game.
           </span>
           <button id="reset">Reset</button>
         </div>
       </div>
-    </body>
+    </div>
+  </div>
+  <div id="footer-container">
+    <div id="footer">
+      <a href="https://github.com/mohamedabdulle/rock-paper-scissors"><img src="img/github.gif" alt="GitHub Link">Mohamed Abdulle © 2023</a>
+    </div>
+  </div>
+</body>
+
 </html>

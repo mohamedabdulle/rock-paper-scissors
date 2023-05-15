@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 body {
@@ -9,66 +9,94 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
+  gap: 50px;
+  background: no-repeat center/cover url(img/boxing-ring.jpg);
+}
+
+#body-container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  background: no-repeat center/cover url(img/3843177.jpg);
+  flex-grow: 1;
 }
 
 #container {
-  backdrop-filter: blur(3px);
+  margin-top: 350px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-wrap: wrap-reverse;
+  gap: 50px;
+  flex-basis: 1102px;
+}
+
+#score-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.score {
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 5rem;
+  color: black;
+  text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+}
+
+#interact {
   display: flex;
   flex-direction: column;
   row-gap: 50px;
-  padding: 20px;
-  border-radius: 10px;
+  flex-basis: 530px;
 }
 
 #shape {
   display: flex;
-  gap: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  padding: 10px;
 }
 
 #shape button {
   padding: 10px;
-  border-radius: 10px;
-  width: 144px;
+  flex-basis: 144px;
   height: 200px;
-  background-color: white;
+  background-color:white;
   background-size: 75% 75%;
 }
 
 #context {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-wrap: wrap;
+  gap: 20px;
   align-items: center;
 }
 
 #msg {
-  text-align: center;
-  border-radius: 20px;
-  border: 2px solid;
-  padding: 15px;
+  text-align: left;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+  padding: 13px;
   font-weight: bold;
-  flex: 1 1 0;
-  width: 450px;
+  flex-basis: 400px;
 }
 
 #reset {
   padding: 10px;
-  border-radius: 10px;
   background-color: white;
   font-weight: bold;
   font-size: 20px;
-  margin-left: 20px;
-  flex: 0 0 auto;
 }
+
 button {
   border: 2px solid black;
+}
+
+button:hover {
+  opacity: 70%;
 }
 
 #rock {
@@ -81,4 +109,32 @@ button {
 
 #scissors {
   background: no-repeat 50% 56% url(img/scissors.gif);
+}
+
+#footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer {
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  backdrop-filter: blur(3px);
+  margin-bottom: 10px;
+}
+
+#footer a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+#footer img {
+  aspect-ratio: 1/1;
+  width: 20px;
+  border-radius: 5px;
 }
